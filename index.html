@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRITIOSINGH FASHION | Maison de Couture</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --maroon: #541522;
+  --dark: #321018;
+  --gold: #c7a365;
+  --cream: #f8f3ea;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: #302522;
+  font-family: 'DM Sans', sans-serif;
+}
+
+header {
+  background: var(--maroon);
+  color: var(--gold);
+  padding: 22px;
+  text-align: center;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  letter-spacing: 5px;
+}
+
+.subtitle {
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-top: 5px;
+}
+
+nav {
+  background: var(--dark);
+  padding: 17px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: #e6d1a5;
+  text-decoration: none;
+  margin: 0 14px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav a:hover { color: white; }
+
+.hero {
+  min-height: 650px;
+  background:
+    linear-gradient(#210b1380,#210b1360),
+    url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1800');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(55px, 9vw, 100px);
+  font-weight: 400;
+  margin: 10px;
+  color: #f0d7a4;
+}
+
+.hero p {
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+.button:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+section {
+  padding: 75px 7%;
+}
+
+.heading {
+  text-align: center;
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.intro {
+  text-align: center;
+  color: #776b62;
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.card {
+  background: white;
+  cursor: pointer;
+  transition: .3s;
+  overflow: hidden;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3 {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  color: var(--maroon);
+  padding: 12px;
+  margin: 0;
+}
+
+.story {
+  background: var(--maroon);
+  color: white;
+  text-align: center;
+}
+
+.story .heading { color: var(--gold); }
+
+.story p {
+  max-width: 750px;
+  margin: auto;
+  line-height: 2;
+  font-size: 13px;
+  color: #eee0d5;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.services h3 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+}
+
+.services p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #776b62;
+}
+
+.contact {
+  background: #eee5d8;
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: 30px auto;
+  display: grid;
+  gap: 15px;
+}
+
+input, select, textarea {
+  padding: 15px;
+  border: 1px solid #cbbba8;
+  background: #fffdf8;
+  font: inherit;
+}
+
+textarea { min-height: 120px; }
+
+form button {
+  background: var(--maroon);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+footer {
+  background: var(--dark);
+  color: var(--gold);
+  text-align: center;
+  padding: 40px 15px;
+  line-height: 2;
+  font-size: 11px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #16090ddd;
+  z-index: 20;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+  background: var(--cream);
+  padding: 35px;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  color: var(--maroon);
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  border: 0;
+  background: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media(max-width:750px) {
+  .grid { grid-template-columns: repeat(2,1fr); }
+  .services { grid-template-columns: 1fr; }
+  nav a { display: inline-block; margin: 7px; }
+}
+
+@media(max-width:500px) {
+  .grid { grid-template-columns: 1fr; }
+  .card img { height: 430px; }
+  .hero { min-height: 500px; }
+  .heading { font-size: 38px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">PRITIOSINGH</div>
+  <div class="subtitle">FASHION · MAISON DE COUTURE</div>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#collections">Collections</a>
+  <a href="#story">Our Story</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Enquiries</a>
+</nav>
+
+<div class="hero" id="home">
+  <div>
+    <p>THE MAISON · NEW DELHI</p>
+    <h1>The Art of<br>Timeless Elegance</h1>
+    <p>HERITAGE · CRAFTSMANSHIP · LUXURY</p>
+    <a href="#collections" class="button">DISCOVER COLLECTIONS</a>
+  </div>
+</div>
+
+<section id="collections">
+  <h2 class="heading">Our Collections</h2>
+  <p class="intro">
+    Discover a world where Indian heritage meets contemporary luxury.
+    Every creation celebrates individuality, artistry and elegance.
+  </p>
+
+  <div class="grid">
+
+    <div class="card" onclick="showDetail('Bridal Couture','Exclusive bridal creations for your most cherished moments.')">
+      <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700" alt="Bridal couture">
+      <h3>Bridal Couture</h3>
+    </div>
+
+    <div class="card" onclick="showDetail('Lehengas','Traditional artistry with beautiful detailing and graceful silhouettes.')">
+      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=700" alt="Lehengas">
+      <h3>Designer Lehengas</h3>
+    </div>
+
+    <div class="card" onclick="showDetail('Designer Suits','Sophisticated ensembles crafted with timeless elegance.')">
+      <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=700" alt="Designer suits">
+      <h3>Designer Suits</h3>
+    </div>
+
+    <div class="card" onclick="showDetail('Sarees','Graceful drapes and exquisite detailing.')">
+      <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=700" alt="Sarees">
+      <h3>Luxury Sarees</h3>
+    </div>
+
+    <div class="card" onclick="showDetail('Indo-Western','Contemporary design inspired by Indian traditions.')">
+      <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=700" alt="Indo western">
+      <h3>Indo-Western</h3>
+    </div>
+
+    <div class="card" onclick="showDetail('Gowns','Elegant statement pieces for unforgettable occasions.')">
+      <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=700" alt="Gowns">
+      <h3>Designer Gowns</h3>
+    </div>
+
+  </div>
+</section>
+
+<section class="story" id="story">
+  <h2 class="heading">Our Story</h2>
+  <p>
+    PRITIOSINGH FASHION celebrates the richness of Indian couture.
+    Our philosophy brings together heritage, thoughtful design
+    and contemporary elegance.
+    Every outfit is an expression of individuality and a celebration
+    of life's most special moments.
+  </p>
+</section>
+
+<section id="services">
+  <h2 class="heading">The Couture Experience</h2>
+
+  <div class="services">
+    <div>
+      <h3>Private Enquiries</h3>
+      <p>Discuss your occasion and preferred style with us.</p>
+    </div>
+    <div>
+      <h3>Design Consultation</h3>
+      <p>Explore design ideas and customisation possibilities.</p>
+    </div>
+    <div>
+      <h3>Personal Attention</h3>
+      <p>A thoughtful experience for every client and celebration.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="heading">Private Enquiries</h2>
+  <p class="intro">
+    For custom designs, collection details and appointments,
+    please send us an enquiry.
+  </p>
+
+  <form id="enquiry">
+    <input id="name" placeholder="Your Name" required>
+    <input id="phone" placeholder="Phone / WhatsApp" required>
+    <input id="email" type="email" placeholder="Email Address">
+    <select id="interest">
+      <option value="">Select Collection</option>
+      <option>Bridal Couture</option>
+      <option>Lehengas</option>
+      <option>Designer Suits</option>
+      <option>Sarees</option>
+      <option>Indo-Western</option>
+      <option>Gowns</option>
+    </select>
+    <textarea id="message" placeholder="Tell us about your requirements"></textarea>
+    <button type="submit">SEND ENQUIRY</button>
+  </form>
+</section>
+
+<footer>
+  <div class="logo">PRITIOSINGH FASHION</div>
+  MAISON DE COUTURE<br>
+  NEW DELHI · INDIA<br>
+  Instagram: Priti Singh – Maison de Couture<br>
+  © 2026 PRITIOSINGH FASHION
+</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeDetail()">
+  <div class="modal-content">
+    <button class="close" onclick="closeDetail()">×</button>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <a href="#contact" class="button" onclick="closeDetail()">MAKE AN ENQUIRY</a>
+  </div>
+</div>
+
+<script>
+function showDetail(title,text) {
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalText').textContent=text;
+  document.getElementById('modal').classList.add('show');
+}
+
+function closeDetail() {
+  document.getElementById('modal').classList.remove('show');
+}
+
+document.getElementById('enquiry').addEventListener('submit',function(e) {
+  e.preventDefault();
+
+  const name=document.getElementById('name').value;
+  const phone=document.getElementById('phone').value;
+  const email=document.getElementById('email').value;
+  const interest=document.getElementById('interest').value;
+  const message=document.getElementById('message').value;
+
+  const subject=encodeURIComponent('PRITIOSINGH FASHION Enquiry');
+  const body=encodeURIComponent(
+    'Name: '+name+
+    '\nPhone: '+phone+
+    '\nEmail: '+email+
+    '\nCollection: '+interest+
+    '\nMessage: '+message
+  );
+
+  // Replace with the actual business email address.
+  window.location.href='mailto:YOUR_EMAIL_HERE?subject='+subject+'&body='+body;
+});
+</script>
+
+</body>
+</html>
